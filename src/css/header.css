@@ -1,0 +1,13 @@
+header {
+    background-color: #161a1d;
+    padding: 10px 20px;
+    align-items: center;
+    max-height: 20%;
+    height: 15%;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
