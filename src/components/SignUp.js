@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import '../css/form.css'
+import {useNavigate} from 'react-router-dom'
+
 class SignUp extends Component {
     constructor(props) {
         super(props);
@@ -9,6 +11,7 @@ class SignUp extends Component {
             lastname: "",
             email: "",
             username: "",
+            steamid: "",
             password: "",
             verifyPassword: ""
         };
@@ -16,7 +19,8 @@ class SignUp extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
-        const { firstname, lastname, email, username, password, verifyPassword } = this.state
+        const { firstname, lastname, email, username, steamid, password, verifyPassword } = this.state
+        const navigate = useNavigate()
 
         try {
             if (password === verifyPassword) {
@@ -25,11 +29,16 @@ class SignUp extends Component {
                     lastname,
                     email,
                     username,
+                    steam32_id: steamid,
                     password
                 }
                 console.log(requestBody)
                 const response = await axios.post("http://localhost:3000/users", requestBody)
                 console.log(response)
+                if (response.status === 201) {
+                    navigate("/login")
+                }
+                
             }
         } catch (e) {
             console.log(e)
@@ -39,6 +48,7 @@ class SignUp extends Component {
             lastname: "",
             email: "",
             username: "",
+            steamid: "", 
             password: "",
             verifyPassword: ""
         })
@@ -52,7 +62,7 @@ class SignUp extends Component {
                         {/* First name */}
                         <label htmlFor="firstname">First name</label>
                         <input type="text" id="firstname" placeholder="Albert" value={this.state.value}
-                            onChange={(e) => this.setState({ firstname: e.target.value })} required/>
+                            onChange={(e) => this.setState({ firstname: e.target.value })} required autoComplete="off"/>
                         {/* Last Name  */}
                         <label htmlFor="lastname">Last name</label>
                         <input type="text" id="lastname" placeholder="Einstein" value={this.state.value}
@@ -65,6 +75,10 @@ class SignUp extends Component {
                         <label htmlFor="email">E-mail</label>
                         <input type="text" id="email" placeholder="username@email.com" value={this.state.email}
                             onChange={(e) => { this.setState({ email: e.target.value }) }} required />
+                        {/* Steam ID */}
+                        <label htmlFor="steamid">Steam ID</label>
+                        <input type="text" id="steamid" placeholder="12398401" value={this.state.steamid}
+                            onChange={(e) => {this.setState({steamid: e.target.value})}} required />
                         {/* Password */}
                         <label htmlFor="password">Password</label>
                         <input type="password" id="password" placeholder="15ykasl%" value={this.state.password}

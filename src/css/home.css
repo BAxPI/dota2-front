@@ -1,0 +1,84 @@
+.content {
+    color:white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+/* 
+table {
+    table-layout: auto;
+    margin: 0px auto;
+    border: 5px solid #660708;
+    padding: 15px;
+}
+
+tr {
+    border: 1px solid #B1A7A6;
+}
+
+td {
+    border: 1px solid #B1A7A6
+}
+ */
+/* Define the color palette */
+:root {
+    --color1: #0B090A;
+    --color2: #161A1D;
+    --color3: #660708;
+    --color4: #A4161A;
+    --color5: #BA181B;
+    --color6: #E5383B;
+    --color7: #B1A7A6;
+    --color8: #D3D3D3;
+    --color9: #F5F3F4;
+    --color10: #FFFFFF;
+  }
+ 
+  .container {
+    width: 80%;
+    background-color: var(--color2);
+  }
+  /* Style the table */
+  table {
+    width: 100%;
+    color: var(--color8);
+    border-collapse: collapse;
+    
+  }
+  
+  /* Style the table headers */
+  th {
+    background-color: var(--color1);
+    color: var(--color11);
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Style the table rows */
+  tr:nth-child(even) {
+    background-color: var(--color3);
+  }
+  
+  tr:nth-child(odd) {
+    background-color: var(--color4);
+  }
+
+  td {
+    border: none;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Style the table cells */
+  /* td {
+    border: 1px solid var(--color2);
+    padding: 8px;
+    text-align: left;
+  } */
+  
+  /* Add specific colors to individual cells */
+  /* td:nth-child(2) {
+    background-color: var(--color6);
+    color: var(--color11);
+  } */
+  
